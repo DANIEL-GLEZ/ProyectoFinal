@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Roberto Daniel González López</title>
+    
+    <link rel="stylesheet" href="styles.css"> 
+
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Roberto Daniel González López</h1>
+        <p>Estudiante de Programación y Diseñador 3D</p>
+        <img src="assets/avatar.jpg" alt="Mi Avatar" width="150">
+    </header>
+
+    <main>
+        <section id="sobre-mi">
+            <h2>👋 Sobre Mí plebes</h2>
+            <p>Soy un estudiante de sistemas, apasionado por la tecnología y el diseño 3D. Este portafolio es un ejemplo de mis habilidades en Blender y en la integración de modelos WebGL.</p>
+        </section>
+
+        <section id="habilidades">
+            <h2>🛠️ Mis Habilidades</h2>
+            <ul>
+                <li>**Desarrollo Web:** HTML semántico, CSS (Flexbox/Grid), JavaScript.</li>
+                <li>**Modelado 3D:** Blender (Modelado, UVs, Materiales).</li>
+                <li>**Python:** Programación orientada a Objetos.</li>
+            </ul>
+        </section>
+
+        <section id="escena-3d">
+            <h2>💻 Mi Setup de Programador</h2>
+            <model-viewer
+                src="assets/3d/setup.glb" 
+                alt="Setup de Programador 3D"
+                shadow-intensity="1"
+                camera-controls        
+                auto-rotate 
+                style="width: 100%; height: 500px;">
+            </model-viewer>
+        </section>
+        
+        <section id="proyectos">
+            <h2>📂 Proyectos</h2>
+            <p>Base de datos de una biblioteca y una interfaz de un oso animado.</p>
+        </section>
+    </main>
+
+    <footer>
+        <section id="contacto">
+            <h2>📧 Contacto</h2>
+            <a href="https://github.com/DANIEL-GLEZ">GitHub</a> | 
+        </section>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

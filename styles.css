@@ -1,0 +1,112 @@
+/* ---  CONFIGURACIÓN BÁSICA de styles s--- */
+:root {
+    /* Variables para el Tema Claro */
+    --color-fondo: #f4f4f9;
+    --color-texto: #333;
+    --color-primario: #007bff;
+    --color-secundario: #fff;
+}
+
+/* Aplica aquí el tema oscuro si la clase 'dark-mode' está en el body */
+.dark-mode {
+    --color-fondo: #2c3e50;
+    --color-texto: #ecf0f1;
+    --color-primario: #3498db;
+    --color-secundario: #34495e;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s; /* Transición suave al cambiar de tema de color*/
+}
+
+/* --- ENCABEZADO Y CONTENIDO PRINCIPAL --- */
+header {
+    background-color: var(--color-secundario);
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 3px solid var(--color-primario);
+}
+
+header img {
+    border-radius: 50%;
+    margin-top: 15px;
+    border: 3px solid var(--color-primario);
+}
+
+main {
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto; /* aquí esto Centra el contenido */
+}
+
+section {
+    padding: 30px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #ccc;
+}
+
+h2 {
+    color: var(--color-primario);
+    border-left: 5px solid var(--color-primario);
+    padding-left: 10px;
+}
+
+/* ---  (Para Habilidades) --- */
+#habilidades ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Usé Flexbox aquí */
+    flex-wrap: wrap; 
+    gap: 10px;
+}
+
+#habilidades li {
+    background: var(--color-secundario);
+    border: 1px solid var(--color-primario);
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+/* --- 4. ESTILOS DE LA SECCIÓN 3D --- */
+#escena-3d {
+    text-align: center;
+    padding: 50px 0;
+}
+
+model-viewer {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+    margin-top: 40px;
+}
+
+footer a {
+    color: var(--color-primario);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* --- Para móviles por si acaso gg --- */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    header p {
+        font-size: 1em;
+    }
+    #habilidades ul {
+        flex-direction: column;
+    }
+}
