@@ -14,168 +14,102 @@ body {
     font-family: var(--font-main);
     background-color: var(--bg-color);
     color: var(--text-main);
-    overflow: hidden; /* El scroll lo maneja el contenedor interno */
+    overflow: hidden; 
     height: 100vh;
 }
 
-.main-layout {
-    display: flex;
-    height: 100vh;
-    width: 100%;
-}
+/* Layout Principal Dividido */
+.main-layout { display: flex; height: 100vh; width: 100%; }
 
+/* --- Esta es la COLUMNA IZQUIERDA  de la página.--- */
 .content-scroll {
     width: 45%; 
     height: 100%;
-    overflow-y: auto;
+    overflow-y: auto; 
     padding: 6rem 4rem; 
     display: flex;
     flex-direction: column;
     gap: 8rem; 
-    
     scrollbar-width: thin;
     scrollbar-color: var(--accent) var(--bg-color);
 }
 
-/* Paraa las secciones Generales */
-.section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
+.section h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+.hero h1 { font-size: 4rem; line-height: 1; font-weight: 800; margin-bottom: 1.5rem; }
+.text-gradient { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.bio { color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; }
+.status-badge { display: inline-block; background: rgba(74, 222, 128, 0.1); border: 1px solid rgba(74, 222, 128, 0.2); color: #4ade80; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; margin-bottom: 1rem; }
 
-.hero h1 {
-    font-size: 4rem;
-    line-height: 1;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-}
-
-.text-gradient {
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.bio {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-}
-
-.status-badge {
-    display: inline-block;
-    background: rgba(74, 222, 128, 0.1);
-    border: 1px solid rgba(74, 222, 128, 0.2);
-    color: #4ade80;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-}
-
-/* Mis Tarjetas de Habilidades */
-.grid-skills {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-}
-
-.card {
-    background: var(--card-bg);
-    padding: 1.5rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: transform 0.2s;
-}
+/* Cards */
+.grid-skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+.card { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.2s; }
 .card:hover { transform: translateY(-5px); border-color: var(--accent); }
 .card h3 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--accent); }
 .card p { font-size: 0.9rem; color: var(--text-muted); }
 
-/*Mis s Tarjetas de Proyectos */
-.project-card {
-    background: linear-gradient(to right, var(--card-bg), transparent);
-    padding: 2rem;
-    border-radius: 12px;
-    border-left: 3px solid var(--accent);
-    margin-bottom: 1.5rem;
-}
+.project-card { background: linear-gradient(to right, var(--card-bg), transparent); padding: 2rem; border-radius: 12px; border-left: 3px solid var(--accent); margin-bottom: 1.5rem; }
 .project-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 .link-btn { color: var(--accent); text-decoration: none; font-weight: bold; font-size: 0.9rem; }
 
-/* os Botones */
+/* Botones */
 .cta-group { display: flex; gap: 1rem; align-items: center; }
-
-.btn-primary {
-    background: white;
-    color: black;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: transform 0.2s;
-}
+.btn-primary { background: white; color: black; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; transition: transform 0.2s; }
 .btn-primary:hover { transform: scale(1.05); background: var(--accent); color: white; }
-
-.btn-icon {
-    background: var(--card-bg);
-    border: 1px solid rgba(255,255,255,0.1);
-    width: 45px;
-    height: 45px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: 0.3s;
-}
+.btn-icon { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); width: 45px; height: 45px; border-radius: 8px; cursor: pointer; font-size: 1.2rem; transition: 0.3s; }
 .btn-icon:hover { background: var(--accent); border-color: var(--accent); }
 
-.canvas-container {
-    width: 55%;
-    height: 100vh;
-    position: relative;
-    background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
-}
+/* --- COLUMNA DERECHA --- */
+.canvas-container { width: 55%; height: 100vh; position: relative; background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%); }
+#webgl { width: 100%; height: 100%; display: block; }
+.instructions { position: absolute; bottom: 20px; right: 20px; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; color: rgba(255,255,255,0.5); pointer-events: none; }
 
-#webgl {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.instructions {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(0,0,0,0.5);
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.7rem;
-    color: rgba(255,255,255,0.5);
-    pointer-events: none;
-}
-
-nav {
-    position: fixed;
-    top: 0;
-    width: 45%; 
-    padding: 1.5rem 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    background: rgba(5, 5, 5, 0.8);
-    backdrop-filter: blur(10px);
-}
+/* Navegación */
+nav { position: fixed; top: 0; width: 45%; padding: 1.5rem 4rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(10px); }
 .logo { font-weight: 800; font-size: 1.2rem; }
 .accent { color: var(--accent); }
 .nav-links a { margin-left: 1.5rem; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
 .nav-links a:hover { color: white; }
 
+/* --- ESTILOS DEL MODAL (VENTANA SECRETA) televisión bienestar --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 2000;
+    display: none; /* Oculto por defecto (no se ve, hasta que se descubra*/
+    justify-content: center; align-items: center;
+    backdrop-filter: blur(8px);
+}
+.modal-content {
+    background: #0f0f0f;
+    width: 90%; max-width: 500px;
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--accent);
+    color: white;
+    position: relative;
+    box-shadow: 0 0 30px rgba(217, 70, 239, 0.2);
+    animation: popIn 0.3s ease-out;
+}
+.close-btn {
+    position: absolute; top: 15px; right: 20px;
+    background: none; border: none;
+    color: var(--text-muted);
+    font-size: 2rem; cursor: pointer;
+    line-height: 1;
+}
+.close-btn:hover { color: white; }
+.modal-subtitle { color: var(--accent); font-weight: bold; margin-bottom: 1rem; }
+.diary-body ul { margin-left: 20px; margin-top: 10px; line-height: 1.6; color: var(--text-muted); }
+
+@keyframes popIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive */
 @media (max-width: 900px) {
-    .main-layout { flex-direction: column-reverse; } /* por si se necesita en movil. 3D Arriba, Texto Abajo en móvil */
+    .main-layout { flex-direction: column-reverse; }
     .content-scroll { width: 100%; height: 60%; padding: 2rem; }
     .canvas-container { width: 100%; height: 40%; }
     nav { width: 100%; padding: 1rem; }
