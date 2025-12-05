@@ -18,20 +18,17 @@ body {
     height: 100vh;
 }
 
-/* Layout Principal Dividido */
+/* Layout */
 .main-layout { display: flex; height: 100vh; width: 100%; }
 
-/* --- Esta es la COLUMNA IZQUIERDA  de la página.--- */
+/* Columna Izquierda */
 .content-scroll {
     width: 45%; 
     height: 100%;
     overflow-y: auto; 
     padding: 6rem 4rem; 
-    display: flex;
-    flex-direction: column;
-    gap: 8rem; 
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent) var(--bg-color);
+    display: flex; flex-direction: column; gap: 8rem; 
+    scrollbar-width: thin; scrollbar-color: var(--accent) var(--bg-color);
 }
 
 .section h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
@@ -55,10 +52,33 @@ body {
 .cta-group { display: flex; gap: 1rem; align-items: center; }
 .btn-primary { background: white; color: black; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; transition: transform 0.2s; }
 .btn-primary:hover { transform: scale(1.05); background: var(--accent); color: white; }
-.btn-icon { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); width: 45px; height: 45px; border-radius: 8px; cursor: pointer; font-size: 1.2rem; transition: 0.3s; }
-.btn-icon:hover { background: var(--accent); border-color: var(--accent); }
 
-/* --- COLUMNA DERECHA --- */
+/* --- NUEVO ESTILO: BOTÓN FLOTANTE EN EL 3D --- */
+.floating-btn {
+    position: absolute; /* Es esencial para flotar sobre el canvas */
+    top: 30px;
+    right: 30px; /* Esquina superior derecha del área 3D */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Redondo */
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: yellow;
+    font-size: 1.5rem;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    z-index: 10; /* Encima del canvas (z-index 0) */
+    display: flex; justify-content: center; align-items: center;
+}
+.floating-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.5); 
+}
+
+
+/* Columna Derecha */
 .canvas-container { width: 55%; height: 100vh; position: relative; background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%); }
 #webgl { width: 100%; height: 100%; display: block; }
 .instructions { position: absolute; bottom: 20px; right: 20px; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; color: rgba(255,255,255,0.5); pointer-events: none; }
@@ -70,44 +90,14 @@ nav { position: fixed; top: 0; width: 45%; padding: 1.5rem 4rem; display: flex; 
 .nav-links a { margin-left: 1.5rem; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
 .nav-links a:hover { color: white; }
 
-/* --- ESTILOS DEL MODAL (VENTANA SECRETA) televisión bienestar --- */
-.modal-overlay {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    z-index: 2000;
-    display: none; /* Oculto por defecto (no se ve, hasta que se descubra*/
-    justify-content: center; align-items: center;
-    backdrop-filter: blur(8px);
-}
-.modal-content {
-    background: #0f0f0f;
-    width: 90%; max-width: 500px;
-    padding: 2.5rem;
-    border-radius: 16px;
-    border: 1px solid var(--accent);
-    color: white;
-    position: relative;
-    box-shadow: 0 0 30px rgba(217, 70, 239, 0.2);
-    animation: popIn 0.3s ease-out;
-}
-.close-btn {
-    position: absolute; top: 15px; right: 20px;
-    background: none; border: none;
-    color: var(--text-muted);
-    font-size: 2rem; cursor: pointer;
-    line-height: 1;
-}
-.close-btn:hover { color: white; }
+/* Modal */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 2000; display: none; justify-content: center; align-items: center; backdrop-filter: blur(8px); }
+.modal-content { background: #0f0f0f; width: 90%; max-width: 500px; padding: 2.5rem; border-radius: 16px; border: 1px solid var(--accent); color: white; position: relative; box-shadow: 0 0 30px rgba(217, 70, 239, 0.2); animation: popIn 0.3s ease-out; }
+.close-btn { position: absolute; top: 15px; right: 20px; background: none; border: none; color: var(--text-muted); font-size: 2rem; cursor: pointer; line-height: 1; }
 .modal-subtitle { color: var(--accent); font-weight: bold; margin-bottom: 1rem; }
-.diary-body ul { margin-left: 20px; margin-top: 10px; line-height: 1.6; color: var(--text-muted); }
 
-@keyframes popIn {
-    from { transform: scale(0.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
+@keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-/* Responsive */
 @media (max-width: 900px) {
     .main-layout { flex-direction: column-reverse; }
     .content-scroll { width: 100%; height: 60%; padding: 2rem; }
